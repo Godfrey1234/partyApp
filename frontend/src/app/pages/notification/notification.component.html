@@ -1,0 +1,52 @@
+
+
+<div class="background min-h-screen">
+    <app-header></app-header>
+  
+    <p class="text-center text-white text-xl my-5">Notifications</p>
+   <div class="overflow-scroll h-96">
+     <div class="notificationContent h-36  mx-5"  *ngFor="let v of notify">
+
+      
+
+          <div class="alert shadow-lg alert-info h-40 mt-10" *ngIf ="v.status === 'Not Read'" (click)="onRead(v.notification_id)">
+            <div>
+                <i class="fi fi-bs-envelope flex-shrink-0 w-6 h-6 text-blue-500"></i>
+      
+              <div>
+                
+                <div class="flex justify-between">
+                    <p class="font-bold text-blue-500">New message!</p>
+                    <p class=" text-gray-500"><i class="fi fi-bs-clock-five"></i>{{ v.time | date : "  HH:MM" }}</p>
+                </div>
+                <span>{{v.message}} </span>
+            </div>
+            </div>
+            <p class="text-gray-500">{{ v.date | date : "  d MMMM y" }} </p>
+
+            
+          </div>
+
+          <div class="alert shadow-lg h-40  mt-10 " *ngIf ="v.status === 'Read'">
+           
+            <p class=" text-gray-500 ml-60"><i class="fi fi-bs-clock-five"></i>{{ v.time | date : "  HH:MM" }}</p>
+
+          <div>
+            <i class="fi fi-bs-envelope-open flex-shrink-0 w-6 h-6"></i>
+            <span>{{v.message}} </span>      
+        </div>
+        <p class="text-gray-500">{{ v.date | date : "  d MMMM y" }} </p>
+      </div>
+
+        
+        
+
+    </div>
+
+
+    </div>
+
+    <br><br>
+
+    
+</div>  

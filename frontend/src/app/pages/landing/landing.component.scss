@@ -1,0 +1,149 @@
+.backgroundimg
+{
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-image: url('../../../assets/Frame\ 9.svg'); 
+   
+}
+
+.btn1{
+    color:hover;
+    width: 10rem;
+    margin-left: 5.5rem;
+ }
+
+ .text
+ {
+    font-size: xx-large;
+    //font-weight: lighter;
+ }
+
+ .btn2{
+    color:hover;
+    width: 10rem;
+    margin-left: 3rem;
+ }
+
+ .inputSearch
+ {
+    position: absolute;
+    top: 35%;
+ }
+
+
+ .grid{
+    background-color: #021431;
+    width: 100%;
+    margin-left: -5%;
+    margin-right: 10%;
+    border-radius: 1rem;
+ }
+
+.profilepic{
+    border-radius: 5rem;
+    height: 5rem;
+    width: 5rem;
+}
+
+.pictures{
+    overflow: scroll;
+    height: 10rem;
+}
+
+
+.fi1{
+   margin-top: 5px;
+   // position: absolute;
+ 
+}
+
+.row5{
+   width: 100%;
+   display: flex;
+
+}
+
+.col5{
+   width: 50%;
+}
+
+
+.vector1{
+   margin-top: -2rem;
+   margin-left: -1rem;
+   position: absolute;
+   width: 10rem;
+}
+
+
+.vector{
+   margin-top: 3rem;
+    margin-left: 2rem;
+    position: absolute;
+    width: 21rem;
+    height: 11rem;
+}
+
+.vector3
+{
+   transform: rotate(-75deg);
+   position: absolute;
+   margin-top: 10rem;
+   width: 7rem;
+   margin-left: 16rem;
+}
+
+body{
+   overflow-x: hidden;
+}
+
+
+
+
+
+
+::ng-deep {
+   .custom-slider .ng5-slider .ng5-slider-bar {
+     background: #ff00bb;
+     height: 2px;
+   }
+   .custom-slider .ng5-slider .ng5-slider-selection {
+     background: #333980;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-pointer {
+     width: 8px;
+     height: 16px;
+     top: auto; /* to remove the default positioning */
+     bottom: 0;
+     background-color: #ff00bb;
+     border-top-left-radius: 3px;
+     border-top-right-radius: 3px;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-pointer:after {
+     display: none;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-bubble {
+     bottom: 14px;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-limit {
+     font-weight: bold;
+     color: #202450;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-tick {
+     width: 1px;
+     height: 10px;
+     margin-left: 4px;
+     border-radius: 0;
+     background: #ff00bb;
+     top: -1px;
+   }
+
+   .custom-slider .ng5-slider .ng5-slider-tick.ng5-slider-selected {
+     background: #202450;
+   }
+ }

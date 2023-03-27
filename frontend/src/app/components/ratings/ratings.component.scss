@@ -1,0 +1,49 @@
+
+    .star-rating {
+        display: inline-block;
+        font-size: 20px;
+      }
+      .fa-star {
+        color: #ccc;
+        cursor: pointer;
+      }
+      .selected {
+        color: #ffa500;
+      }
+      .rating-value {
+        margin-left: 10px;
+      }
+      .rating-count {
+        display: block;
+        font-size: 12px;
+        color: #999;
+      }
+
+      .footer{
+
+        width: 100% !important;
+        position: absolute;
+        bottom: 0;
+      }
+
+.backgroundimg
+{
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-image: url('../../../assets/Frame\ 9.svg'); 
+}
+
+.img
+{
+    height: 2rem;
+    width: 2rem;
+    align-self: center;
+}
+
+
+.card{
+  margin-top: 10rem;
+  background-color: #dba0cbbd;
+  border-radius: 18px;
+  box-shadow: -18px 17px 33px -4px rgba(0,0,0,1);
+}

@@ -1,0 +1,131 @@
+.backgroundimg
+{
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-image: url('../../../assets/Frame\ 9.svg'); 
+    border-radius: 0px 0px 30px 30px;
+}
+
+
+
+
+
+
+
+@media (min-width: 0px) and (max-width: 768px)
+{
+   
+    .one
+    {
+        margin-left: 5%;
+        margin-right: 10%;
+    }
+
+    .himg
+{  
+    position:absolute;
+    left: -0.6rem;
+}
+
+    
+}
+
+.cardleghth
+{
+    padding-bottom: 20%;
+    padding-top: 10%;
+}
+
+.signinbtn
+{
+    border: #342A23;   
+}
+
+// .promo
+// {
+//     color: #342A23;
+// }
+
+.row {
+    display: flex;
+  }
+
+.li:hover{
+    background-color: #E3D3C3;
+}
+.a:active{
+    background-color: #634D39;
+}
+
+.aboutus
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.himg
+{  
+    width: 100px;
+    height: 50px;
+}
+
+.pre-btn-icon {
+    background: transparent;
+    vertical-align: middle;
+    flex: 0 0 auto;
+    color:black;
+    padding: 8px;
+    text-align: center;
+    border-radius: 100px;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+}
+
+.pre-btn-icon:hover, .pre-clear-search:hover {
+    outline: none;
+    background: #e5e5e5;
+}
+
+.text1
+{
+    font-weight: lighter;
+}
+
+.menu1
+{
+    position: fixed;
+    top: -25px;
+    right: 0;
+    left: 0;
+    height:110vh;
+    
+    backdrop-filter: blur(4px);
+ 
+}
+
+
+.menu2{
+
+    position: absolute;
+    top: 11px;
+    right: 0;
+    height: 104vh;
+    background-color:  #202450;
+    border-radius: 4rem 0 0rem 0rem;
+   
+   
+}
+
+
+.li{
+    color:#dba0cb;
+    
+}
+
+
+
+  

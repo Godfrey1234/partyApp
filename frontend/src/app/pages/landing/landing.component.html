@@ -1,0 +1,612 @@
+<div class="overflow-hidden">
+  <div class="backgroundimg " style="background-image:url('../../../assets/Frame\ 9.svg');">
+    <div class="flex flex-col min-h-screen ">
+    <!-- s -->
+    <app-header></app-header>
+  
+    <h6 class="text-[pink] text-end mx-5 text">LETS GO  <br> <span class="text-[#ffff]">THROUGH YOUR </span> <br><span>PARTY PLANNING...!</span></h6> <br>
+  
+    <img class="vector" src="../../../assets/pinpng.com-pink-confetti-png-648771.png" alt="">
+    <img class="vector3" src="../../../assets/png-transparent-transformice-making-cake-flags-party-confetti-holidays-text-android-removebg-preview.png" alt="">
+    <form [formGroup]="multiForm" >
+  
+       
+      <div class="formL rounded-lg mx-5 mb-10 " style="background-color: #dba0cbbd;" [hidden]="!(value === 0)">
+      <img class="vector1" src="../../../assets/pinpng.com-ballon-png-138161.png" alt="">
+  
+        <div class="bg1"> <br>
+            <p class="text-end mr-10 text-white mb-2"><span class="header">0%</span></p>
+            <progress class="progress ml-10 w-64 progress-yellow mb-5" style="background-color: white;" value="0" max="100"></progress>
+        </div>
+  
+        <p class="mx-5 ml-8 text-white"> Where are you going to have the Party? </p>  
+        <div class="w-72">
+         
+  
+          <div class="row5 space-x-2 mb-5 mt-3">
+            <div class="col5">
+              <label class="ml-8 mt-5 text-white"> <i class="fi fi-bs-marker text-[#202450]"></i> Province </label> 
+               <select placeholder ="Please enter your province." class="input w-32 ml-8 border-[#202450]" formControlName="Province" (change)= "onSelectP()"  id="province" required>
+                <option>Where Is your province?</option>
+                <option *ngFor="let prov of provinces" [ngValue]="prov">{{prov}}</option>
+               </select > 
+            </div>
+            
+            <div class="col5">
+               <label class="ml-8 text-white "> <i class="fi fi-bs-building text-[#202450]"></i> City</label> 
+              <select class="input w-32 ml-8  border-[#202450] " formControlName="city" id="city" required>
+                <option>Where Is your City ?</option>
+                <option *ngFor="let prov of citttt" [ngValue]="prov">{{prov}}</option>
+               </select >
+            </div>
+          </div>
+          
+                
+                
+                
+      
+               
+               
+  
+              <p class="ml-8 text-white">How many guests are you planning to have?</p>
+             
+            
+              <div class="ml-8 custom-slider">
+              <ng5-slider  [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+              </div>
+              
+              <p class="ml-8 mt-2 text-white">When is your special day?</p>
+                 <input type="date" formControlName="date"  class="ml-8 mb-5 input w-full max-w-xs border-[#202450]" required>
+    
+              <p class="ml-8 text-white">What time do you have in mind?</p>
+                 <input type="time" formControlName="time"  class=" mb-5 ml-8 input w-full max-w-xs border-[#202450]" required>
+  
+              <a class="btn btn1 btn-sm text-center border-none btn-wide" style="color: white;" (click)="onNext()" >Confirm</a>
+        </div>
+  
+        <br>
+        <p class="text-center text-gray-500 text-xs mt-16">
+          &copy;2023 Party tainers. All rights reserved.
+        </p>
+        <br>
+   </div>
+  
+  
+  <div class="formL rounded-lg mx-5" style="background-color: #dba0cbbd;" [hidden]="!(value === 1)">
+  
+            <div class="bg1"> <br>
+              <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+              <p class="text-end text-white mb-2 mr-10"><span class="header">15%</span></p>
+              <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="15" max="100"></progress>
+          </div>
+            
+  
+            <div class="form2 mb-36 text-white">
+  
+             <br>
+                <label class="ml-10 mt-10">Do want a venue for your party?</label><br>
+                <div  class="yes ">
+                    
+                    <div class="row">
+                        <br>
+                        <span class="ml-28 text-4xl mt-2 " (click)="onNextV()"><i class="fa text-green-600 fa-check-circle-o" aria-hidden="true"></i></span> <span class="fi1 fixed ml-4  mb-4 text-lg" (click)="onNextV()">Yes</span>
+                    </div>
+  
+                    <div class="row mt-3">
+                      <span class="ml-28 text-4xl mt-2 " (click)="onSkip()"><i class="fa text-red-600 fa-times-circle-o" aria-hidden="true"></i></span> <span class="fi1  fixed ml-4  mb-4 text-lg" (click)="onSkip()">No</span>
+                
+                    </div> 
+                  
+                  <br>
+                </div>
+                
+            </div>
+         
+           
+        </div>
+  
+  <div class="formL rounded-lg mx-5 mb-10 mt-20" style="background-color: #dba0cbbd;" [hidden]="!(value === 2)">
+  
+            <div class="bg1"> <br>
+              <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+              <p class="text-end text-white mb-2 mr-10"><span class="header">30%</span></p>
+              <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="30" max="100"></progress>
+          </div>
+  
+          <br>
+          <div class="mx-5 ml-8 text-white text-center">
+            <label> Please see the available venue providers around your selected location below. </label>
+     
+          </div>
+          
+            <div *ngIf ="providerMessage == 'o'">
+                <br/>
+                <div class="yes text-white mx-10"> 
+                  
+                  
+                <div *ngIf = "provider_Available == 'we dont have service providers around your area'">
+  
+                  <div class="alert alert-warning shadow-lg">
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                      <span><p >{{Message}}</p></span>
+                    </div>
+                  </div>
+                </div>
+                <br/>
+                <!--<p *ngif = "provider_Available == 'we dont have service providers around your area'">{{Message}}</p> -->
+  
+                <a class="btn btn2 btn-sm text-center border-none btn-wide" (click)="onNext()">Next</a>
+                </div>
+            </div>
+          
+                <div class="yes ml-8 my-4" *ngFor="let v of Posts|filter : searchText" >
+                
+                 <div class="grid grid-rows-1 grid-flow-col gap-3" >
+                    <div class="w" style="width:100%;">
+                    <img  class="box-border h-36  ml-2 mb-2 mt-2 w-36  rounded-md  " src="{{v.coverimg}}">
+                    </div>
+                    <div class="contentss mr-8 mt-2">
+                        <h1 class="ml-4 text-md text-white">{{v.user_name}} {{v.user_lastname}} </h1> 
+                        <span class="ml-4 mt-4 absolute text-white"> <span><i class="fi1 fi-bs-marker"></i></span> {{v.area}}</span><br>
+                     
+                    
+                     <div class="grid-rows-1 grid-col-2  mt-8 space-x-1 ">
+                     <label  class="btn w-16  ml-4 text-white font-bold" for="my-modal-3"  (click)="onView(v.user_id)" style="height:0.5rem; background-color:#dba0cb ;">View</label> 
+                     <label  class="btn w-16 text-white font-bold ml-1 " (click)="onSelectV(v.user_id, v.user_name , v.user_lastname)" style="height:0.5rem; background-color:#dba0cb ;">Select</label>
+  
+                                 
+                        <!-- Modal -->
+                        <input type="checkbox" id="my-modal-3" class="modal-toggle"  />
+                        <div class="modal" *ngFor="let c of providerProfile">
+                        <div  class="modal-box relative mt-12" style="background-color:#202450; background-size: cover; height: 100vh;">
+                        <div class="row h-72">
+                        
+                          <div class="cover w-full fixed left-0 top-0 h-40" style="background-image:url({{c.coverimg}}); background-size: cover; ">
+                            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2"><i class="fi1 text-white fi-bs-cross-small"></i></label>
+            
+                            <div class="avatar absolute ml-32 mt-28">
+                               <div class="w-24 rounded-full">
+                                 <img   src="{{c.profilepic}}" />
+                               </div>
+                             </div>
+                         </div>
+                         
+                       
+  
+                         <div class="input text-white  w-full h-auto mt-28  form-control bg-[#202450]">
+                         
+                          <span class="text-center mt-20"><i class="fi fi-bs-star text-[gold]"></i> {{c.rating}}</span>
+                          <span class="text-center mt-4 "><i class="fi fi-bs-user"></i>&nbsp;&nbsp;{{c.user_name}} {{c.user_lastname}}</span>
+                          <span class="text-center "><i class="fi fi-bs-marker"></i>&nbsp;&nbsp;{{c.street}} {{c.area}} </span>
+                          <span class="text-center">{{c.city}}</span>
+                          
+                     
+                     
+  
+  
+                       <p class="text-center mt-6 text-white"><i class="fi fi-bs-mode-portrait"></i> &nbsp;&nbsp;Gallery</p>
+  
+                       <div class="gallery w-full mt-4 h-40 overflow-scroll" >
+                        
+                        <img class="w-full h-34 mb-4" *ngFor="let c of gallery" src="{{c.image}}" alt=""><br>
+                        
+                       </div>
+
+                       <span class="text-center mb-4 mt-3">{{c.description}}</span>
+                       <br><br>
+                          </div>
+                        </div>
+                      
+                        
+                      
+                      
+                        </div>
+                        </div>
+  
+                        </div>
+                    </div>
+  
+                </div> 
+                 </div> 
+            <br> 
+  </div> 
+  
+  
+  
+  <div class="formL rounded-lg mx-5" style="background-color: #dba0cbbd;" [hidden]="!(value === 3)">
+  
+    <div class="bg1"> <br>
+      <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+      <p class="text-end text-white mb-2 mr-10"><span class="header">45%</span></p>
+      <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="45" max="100"></progress>
+  </div>
+    
+  
+    <div class="form2">
+  
+     <br>
+        <label class="ml-10 mt-10 text-white">Do want catering for your party?</label><br>
+        <div  class="yes ">
+            
+         
+           <div class="row">
+            <br>
+            <span class="ml-28 text-4xl mt-2" (click)="onNextC()"><i class="fa text-green-600 fa-check-circle-o" aria-hidden="true"></i></span> <span class="fi1 fixed ml-4  text-white mb-4 text-lg" (click)="onNextC()">Yes</span>
+        </div>
+  
+        <div class="row mt-3 pb-10">
+          <span class="ml-28 text-4xl mt-2" (click)="onSkip()"><i class="fa text-red-600 fa-times-circle-o" aria-hidden="true"></i></span> <span class="fi1  fixed ml-4 text-white  mb-4 text-lg" (click)="onSkip()">No</span>
+    
+        </div> 
+      </div>
+        
+    </div>
+  
+  </div>
+  
+  
+  <div class="formL rounded-lg mx-5 mb-10 mt-20" style="background-color: #dba0cbbd;" [hidden]="!(value === 4)">
+  
+    <div class="bg1"> <br>
+      <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+      <p class="text-end text-white mb-2 mr-10"><span class="header">30%</span></p>
+      <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="30" max="100"></progress>
+  </div>
+  
+  
+  <br>
+  <div class="mx-5 ml-8 text-white text-center">
+    <label> Please see the available catering providers around your selected location below. </label>
+
+  </div>
+  
+    <div *ngIf ="providerMessage == 'o'">
+        <br/>
+        <div class="yes text-white mx-10"> 
+          
+          
+        <div *ngIf = "provider_Available == 'we dont have service providers around your area'">
+  
+          <div class="alert alert-warning shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <span><p >{{Message}}</p></span>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <!--<p *ngif = "provider_Available == 'we dont have service providers around your area'">{{Message}}</p> -->
+  
+        <a class="btn btn2 btn-sm text-center border-none btn-wide" (click)="onNext()">Next</a>
+        </div>
+    </div>
+  
+        <div class="yes ml-8 my-2" *ngFor="let v of CDetails|filter : searchText2" >
+        
+          <div class="grid grid-rows-1 grid-flow-col gap-3 mt-4" >
+            <div class="w" style="width:100%;">
+            <img  class="box-border h-36  ml-2 mb-2 mt-2 w-36  rounded-md  " src="{{v.coverimg}}">
+            </div>
+            <div class="contentss mr-8 mt-2">
+                <h1 class="ml-4 text-md text-white">{{v.user_name}} {{v.user_lastname}} </h1> 
+                <span class="ml-4 mt-4 absolute text-white"> <span><i class="fi1 fi-bs-marker"></i></span> {{v.area}}</span><br>
+             
+            
+             <div class="grid-rows-1 grid-col-2  mt-8 space-x-1 ">
+             <label  class="btn w-16  ml-4 text-white font-bold" for="my-modal-5"  (click)="onView(v.user_id)" style="height:0.5rem; background-color:#dba0cb ;">View</label> 
+             <label  class="btn w-16 text-white font-bold ml-1 " (click)="onSelectC(v.user_id, v.user_name , v.user_lastname)" style="height:0.5rem; background-color:#dba0cb ;">Select</label>
+
+                         
+                <!-- Modal -->
+                <input type="checkbox" id="my-modal-5" class="modal-toggle"  />
+            
+                <div class="modal" *ngFor="let c of providerProfile">
+                  <div  class="modal-box relative mt-40" style="background-color: #202450; background-size: cover; height: auto;">
+                  <div class="row h-72">
+                  
+                    <div class="cover w-full fixed left-0 top-0 h-44" style="background-image:url({{c.coverimg}}); background-size: cover; ">
+                      <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2"><i class="fi1 text-white fi-bs-cross-small"></i></label>
+      
+                      <div class="avatar absolute ml-32 mt-28">
+                         <div class="w-24 rounded-full">
+                           <img   src="{{c.profilepic}}" />
+                         </div>
+                       </div>
+                   </div>
+                   
+  
+                   <div class="input text-white  w-full h-auto mt-20  form-control bg-[#202450]">
+                    <span class="text-center mt-28"><i class="fi fi-bs-star text-[gold]"></i> {{c.rating}}</span>
+                    <span class="text-center mt-4 "><i class="fi fi-bs-user"></i>{{c.user_name}} {{c.user_lastname}}</span>
+                    <span class="text-center "><i class="fi fi-bs-marker"></i> {{c.street}} {{c.area}} </span>
+                    <span class="text-center">{{c.city}}</span>
+                    
+               
+               
+
+
+                 <p class="text-center mt-6 text-white"><i class="fi fi-bs-mode-portrait"></i> Gallery</p>
+
+                 <div class="gallery w-full mt-4 h-40 overflow-scroll" >
+                  
+                  <img class="w-full h-34 mb-4" *ngFor="let c of gallery" src="{{c.image}}" alt=""><br>
+                  
+                 </div>
+
+                 <span class="text-center mb-4 mt-3">{{c.description}}</span> <br><br>
+                    </div>
+  
+                  </div>
+                
+                  
+                
+                
+                  </div>
+                  </div>
+  
+  
+                </div>
+            </div>
+  
+        </div> 
+    </div> 
+    <br> 
+  </div> 
+  
+  
+  
+  
+  <div class="formL rounded-lg mx-5" style="background-color: #dba0cbbd;" [hidden]="!(value === 5)">
+  
+    <div class="bg1"> <br>
+      <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+      <p class="text-end text-white mb-2 mr-10"><span class="header">75%</span></p>
+      <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="75" max="100"></progress>
+  </div>
+    
+  
+    <div class="form2 text-white">
+  
+     <br>
+        <label class="ml-10 mt-10">Do want a Decor for your party?</label><br>
+        <div  class="yes ">
+            
+        
+        <div class="row">
+            <br>
+            <span class="ml-28 text-4xl mt-2" (click)="onNextD()"><i class="fa text-green-600 fa-check-circle-o" aria-hidden="true"></i></span> <span class="fi1 fixed ml-4 text-white  mb-4 text-lg" (click)="onNextD()">Yes</span>
+        </div>
+  
+        <div class="row mt-3 pb-10">
+          <span class="ml-28 text-4xl mt-2" (click)="onSkip()"><i class="fa text-red-600 fa-times-circle-o" aria-hidden="true"></i></span> <span class="fi1  fixed ml-4  text-white  mb-4 text-lg" (click)="onSkip()">No</span>
+    
+        </div> 
+  
+        </div>
+        
+    </div>
+  
+  </div>
+  
+  
+  <div class="formL rounded-lg mx-5 mb-10 mt-20" style="background-color: #dba0cbbd;" [hidden]="!(value === 6)">
+  
+    <div class="bg1"> <br>
+      <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+      <p class="text-end text-white mb-2 mr-10"><span class="header">80%</span></p>
+      <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="80" max="100"></progress>
+  </div>
+  
+  <br>
+  <div class="mx-5 ml-8 text-white text-center">
+    <label> Please see the available decor providers around your selected location below. </label>
+
+  </div>
+  
+        <div *ngIf ="providerMessage == 'o'">
+        <br/>
+        <div class="yes text-white mx-10"> 
+          
+          
+        <div *ngIf = "provider_Available == 'we dont have service providers around your area'">
+  
+          <div class="alert alert-warning shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <span><p >{{Message}}</p></span>
+            </div>
+          </div>
+        </div>
+        <br/>
+        <!--<p *ngif = "provider_Available == 'we dont have service providers around your area'">{{Message}}</p> -->
+  
+        <a class="btn btn2 btn-sm text-center border-none btn-wide" (click)="onNext()">Next</a>
+        </div>
+    </div>
+  
+        <div class="yes ml-8 my-2" *ngFor="let v of Deco|filter : searchText3" >
+        
+          <div class="grid grid-rows-1 grid-flow-col gap-3 mt-4" >
+            <div class="w" style="width:100%;">
+            <img  class="box-border h-36  ml-2 mb-2 mt-2 w-36  rounded-md  " src="{{v.coverimg}}">
+            </div>
+            <div class="contentss mr-8 mt-2">
+                <h1 class="ml-4 text-md text-white">{{v.user_name}} {{v.user_lastname}} </h1> 
+                <span class="ml-4 mt-4 absolute text-white"> <span><i class="fi1 fi-bs-marker"></i></span> {{v.area}}</span><br>
+             
+            
+             <div class="grid-rows-1 grid-col-2  mt-8 space-x-1 ">
+             <label  class="btn w-16  ml-4 text-white font-bold" for="my-modal-6"  (click)="onView(v.user_id)" style="height:0.5rem; background-color:#dba0cb ;">View</label> 
+             <label  class="btn w-16 text-white font-bold ml-1 " (click)="onSelectD(v.user_id, v.user_name , v.user_lastname)" style="height:0.5rem; background-color:#dba0cb ;">Select</label>
+         
+        
+              <!-- Put this part before </body> tag -->
+            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+            <div class="modal" *ngFor="let c of providerProfile">
+              <div  class="modal-box relative mt-40" style="background-color: #202450; background-size: cover; height: auto;">
+              <div class="row h-72">
+              
+                <div class="cover w-full fixed left-0 top-0 h-44" style="background-image:url({{c.coverimg}}); background-size: cover; ">
+                  <label for="my-modal-6" class="btn btn-sm btn-circle absolute right-2 top-2"><i class="fi1 text-white fi-bs-cross-small"></i></label>
+  
+                  <div class="avatar absolute ml-32 mt-28">
+                     <div class="w-24 rounded-full">
+                       <img   src="{{c.profilepic}}" />
+                     </div>
+                   </div>
+               </div>
+               
+
+               <div class="input text-white  w-full h-auto mt-20  form-control bg-[#202450]">
+                <span class="text-center mt-28"><i class="fi fi-bs-star text-[gold]"></i> {{c.rating}}</span>
+                <span class="text-center mt-4 "><i class="fi fi-bs-user"></i>{{c.user_name}} {{c.user_lastname}}</span>
+                <span class="text-center "><i class="fi fi-bs-marker"></i> {{c.street}} {{c.area}} </span>
+                <span class="text-center">{{c.city}}</span>
+                
+           
+           
+
+
+             <p class="text-center mt-6 text-white"><i class="fi fi-bs-mode-portrait"></i> Gallery</p>
+
+             <div class="gallery w-full mt-4 h-40 overflow-scroll" >
+              
+              <img class="w-full h-34 mb-4" *ngFor="let c of gallery" src="{{c.image}}" alt=""><br>
+              
+             </div>
+
+             <span class="text-center mb-4 mt-3">{{c.description}}</span> <br><br>
+                </div>
+
+              </div>
+            
+              
+            
+            
+              </div>
+              </div>
+  
+              
+              
+              </div>
+            </div>
+  
+        </div> 
+    </div> 
+    <br> 
+  </div> 
+  
+  <div class="formL rounded-lg mx-5 mb-10" style="background-color: #dba0cbbd;" [hidden]="!(value === 7)">
+  
+      <div class="bg1"> <br>
+      <div class="backBtn ml-5" (click)="onPrev()"><i class="fi fi-bs-arrow-alt-circle-left ml-5 mb-10"></i></div>
+      <p class="text-end text-white mb-2 mr-10"><span class="header">100%</span></p>
+      <progress class="progress ml-10 w-64 progress-yellow" style="background-color: white;" value="100" max="100"></progress>
+      </div>
+    
+  
+    <div class="form2">
+  
+  
+             <br>
+              
+          
+            <div class="w-64">
+  
+          
+              <label class="ml-10 mt-2 text-white text-center"> Booking </label>
+              
+  
+              <div class="form-control mx-10 my-2">
+                <label class="label">
+                  <span class="label-text text-white">Location</span>
+                </label> 
+                <span type="text" class="input  w-64 input-secondary input-bordered">{{Location}}</span>
+  
+                <label class="label">
+                  <span class="label-text text-white">Date</span>
+                </label> 
+                <span type="text" class="input w-64 input-secondary input-bordered text-black"> {{Date}}</span>
+                <label class="label">
+                <span class="label-text text-white">Time</span>
+                </label> 
+                <span type="text" class="input w-64 input-secondary input-bordered">{{Time}} </span> <br>
+  
+                <label class="label">
+                  <span class="label-text text-white">Number of Guests</span>
+                  </label> 
+                  <span type="text" class="input w-64 input-secondary input-bordered">{{this.minValue}} - {{this.maxValue}}</span> <br>
+            
+                <label class="label"><span class="label-text text-white">Selected Providers</span></label> 
+  
+                <span type="text" class="input w-64 h-40 input-secondary input-bordered">
+  
+                  <label class="label" *ngIf = "venueAnswer === 'yes'">
+                    <span class="label-text text-black">Venue :</span>
+                    <br>
+                    <span >{{venue}}</span>
+                  </label>
+  
+                  <label class="label" *ngIf = "cateranswer  === 'yes'">
+                    <span class="label-text text-black">Cater :</span>
+                    <br>
+                    <span >{{cater}}</span>
+                  </label>
+  
+  
+                  <label class="label" *ngIf = "Decoanswer === 'yes'">
+                    <span class="label-text text-black">Decor :</span>
+                    <br>
+                    <span >{{Decor}}</span>
+                  </label>
+                 
+  
+  
+  
+                
+  
+  
+                </span> <br>
+              
+              
+        
+  
+              </div>
+              <div class="row ml-10 space-x-2 text-center">
+              <a class="btn  mb-10 w-24"   (click)="submit()" >Book</a>
+              <a class="btn w-28" (click)="onCancel()">Cancel</a>
+              </div>
+  
+            </div>
+  
+  
+  
+            </div>
+  
+  
+  
+          </div>
+  
+ 
+  </form> 
+    
+  <input type="text"  class="inputSearch ml-7 input w-full max-w-xs" [(ngModel)]="searchText" [hidden]="!(value === 2)" placeholder="search">
+  <input type="text"  class="inputSearch ml-7 input w-full max-w-xs" [(ngModel)]="searchText2" [hidden]="!(value === 4)" placeholder="search">
+  <input type="text"  class="inputSearch ml-7 input w-full max-w-xs" [(ngModel)]="searchText3" [hidden]="!(value === 6)" placeholder="search">
+  
+ 
+  
+  </div>
+  
+  </div>
+
+</div>
+
+
+
+
+
+
+
+

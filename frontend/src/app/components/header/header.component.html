@@ -1,0 +1,64 @@
+
+
+
+<div class="navbar">
+  <div class="flex-1">
+    <img class="himg" src="../../../assets/PT__2_-removebg-preview.png" alt="">
+    
+  </div>
+    <div class="flex-none gap-2">
+
+      <div class="avatar placeholder mr-5 mask mask-hexagon" style="background-color: #dba0cb;">
+        <div class="rounded-full w-8">
+          <span class="text-xs text-white" tabindex="0">{{initials}}</span>
+        </div>
+      </div>
+    
+      <div class="indicator mr-5" [routerLink]="['/notification']">
+        <div class="indicator-item -mr-1 mt-2 border-none text-white badge badge-primary" style="background-color: #202450;">{{countNotify}}</div> 
+        <i class="fa fa-bell fa-2x" aria-hidden="true" style="color: #dba0cb;"></i>
+      </div>
+
+
+      <div class="dropdown justify-items-center dropdown-end" (click)="menu()" style="color: #342A23;">
+
+
+
+        <label tabindex="0" class="lg:hidden">
+         <button data-var="mobileButton"  id="MobileMenuButton" aria-haspopup="true" aria-expanded="false" aria-label="menu" 
+        class="pre-btn-mobile-menu pre-btn-icon ripple d-sm-ib d-lg-h lg:hidden "  >
+        <svg aria-hidden="true" class="pre-nav-design-icon" style="color: #dba0cb;" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+        <path  stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path>
+      </svg>
+        </button>
+        </label>
+
+        
+        <ul tabindex="0"  [hidden]="isvisible" class="menu1 menu-compact dropdown-content mt-3 p-2 shadow w-full" >
+          
+          <div class="menu2 w-80 mt-1" ><br>
+ 
+            <i class="fi fi-bs-cross absolute ml-72 text-[#dba0cb]" (click)="onClick()"></i><br><br>
+            <li class="li"><a class="a text-2xl ml-10"  [routerLink]="['/landing']"><i class="fi fi-bs-home"></i>&nbsp;Home</a></li><br>
+            <li class="li"><a class="a text-2xl ml-10 " [routerLink]="['/clientbookings']" ><i class="fi fi-bs-ticket alt"></i>&nbsp;View Booking</a></li><br>
+            <li class="li"><a class="a text-2xl ml-10"  [routerLink]="['/profile']"><i class="fi fi-bs-user"></i>&nbsp;Profile</a></li><br>
+            <li class="li"><a class="a text-2xl ml-10"  (click)="logout()"><i class="fi fi-bs-sign-out-alt"></i>&nbsp;Logout</a></li>
+            <br>
+            <img class="himg1 mt-12" src="../../../assets/PT__2_-removebg-preview.png" alt="">
+            <p class="text-center text-gray-500 text-xs mt-2">
+              &copy;2023 Party tainers. All rights reserved.
+            </p>
+          </div>
+        </ul>
+      </div>
+      
+    </div>
+    <div class="navbar-end hidden lg:flex">
+      <ul class="menu menu-horizontal px-1" style="color: #342A23;">
+        <li class="li"><a class="a" [routerLink]="['/clientbookings']" >View Booking</a></li>
+        <li class="li"><a class="a" [routerLink]="['/profile']">Profile</a></li>
+        <li class="li"><a class="a" [routerLink]="['/landing']">Home</a></li>
+        <li class="li"> <a class="a"  (click)="logout()">Logout</a></li>
+        </ul>
+    </div>
+  </div>

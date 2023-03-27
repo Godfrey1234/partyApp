@@ -1,0 +1,104 @@
+<!-- Put this part before </body> tag -->
+  <input type="checkbox" id="my-modal-2" class="modal-toggle" />
+  <div class="modal ">
+    <div class="modal-box bg-white">
+      <label for="my-modal-2" class="btn text-white btn-sm btn-circle absolute right-2 top-2">✕</label>
+      <h3 class="text-lg font-bold text-black">Edit Booking</h3>
+     
+      <form class="form space-y-4 md:space-y-6" action="#" id="bookingUpdateForm" [formGroup]="bookingUpdateForm">
+
+            <div>
+              <label class="text-black">Number of guests <br></label>
+              <select class=" mb-4 input w-full max-w-xs border-gray-300" formControlName="num_guests" id="province" required>
+              <option>Select guest range</option>
+              <option *ngFor="let guests of numG" [ngValue]="guests">{{guests}}</option>
+              </select>        
+            </div>
+
+            <div>
+              <label for="Date" class="block mb-2 text-black text-sm font-medium">Date<span>*</span></label>
+              <input type="Date" formControlName="date" name="Date " id="Date" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  " required="">
+            </div>
+            <div>
+            <label for="Time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Time<span>*</span></label>
+            <input type="Time" formControlName="time"  name="Time" id="Time" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required="">
+            </div>
+          
+        <button class="btn text-white" (click)="onSubmit()" type="submit"> Submit</button>
+      </form>
+   
+    </div>
+    
+  </div>
+
+ 
+
+    <!-- Put this part before </body> tag -->
+    <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+    <div class="modal" >
+      <div class="modal-box relative">
+        <label for="my-modal-3" class="btn btn-sm  text-white  btn-circle absolute right-2 top-2">✕</label>
+        <h3 class="text-lg font-bold text-black">Cancel</h3>
+        <p class="py-4 text-black">Are you sure you want to cancel booking?</p>
+         <div class="row space-x-2" style="display:flex ;">
+          <button type="submit" (click)="cancelBooking()" class="btn text-white flex justify-start content-center" > Yes</button>
+          <label for="my-modal-3" class="btn text-white flex justify-end content-center"> No</label>
+        </div>
+
+      </div>
+
+    </div>
+
+
+   
+
+<div class="backgroundimg min-h-screen " style="background-image:url('../../../assets/Frame\ 9.svg')">
+
+<app-header></app-header>
+
+
+  <div class="spac">
+
+    <h1 class="text-white text-center">My Bookings</h1>
+   <br>
+  <div class="card shadow-xl ml-4 mr-4 mb-4" *ngFor="let booking of bookings" >
+    <!-- <figure><img src="../../../assets/Frame 9.svg" alt="Shoes" /></figure> -->
+
+    <div class="card-body my-1" style="background-color: #dba0cbbd; border-radius:1rem">
+
+      <h2 class="card-title text-white mb-2 -ml-2"><span><img class="profilep" src="{{booking.profilepic}}"></span>{{booking.user_name}} {{booking.user_lastname}} </h2>
+      <p><strong class="text-white "><i class="fi fi-bs-briefcase"></i> Service Name : {{booking.service_name}} </strong> </p>
+       <p class="text-white"><i class="fi fi-bs-calendar-check"></i>  {{ booking.date | date : "  d MMMM y" }}</p>
+       <p class="text-white"><i class="fi fi-bs-clock-three"></i> Time :  {{booking.time}} </p>
+      <p class="text-white">Booking Status :  {{booking.booking_status}} </p>
+
+      <div class="card-actions justify-end">
+      
+      <button (click)="getProvId(booking.user_id)" *ngIf="booking.booking_status==='Approved'" class="btn text-white  sm:btn-sm md:btn-md lg:btn-md mt-2" [routerLink]="['/rating']">Rate Provider</button>
+         
+
+        <div class="flex justify-between mt-4">
+          <label for="my-modal-2"  *ngIf="booking.booking_status==='Pending'" class="btn text-white sm:btn-sm md:btn-md lg:btn-md flex justify-start "
+          (click)="getBookId(booking.booking_id)" >Edit</label> &nbsp;
+
+
+          <label for="my-modal-3" *ngIf="booking.booking_status==='Pending'" class="btn text-white sm:btn-sm md:btn-md lg:btn-md flex justify-end "
+          (click)="getBookId(booking.booking_id)">Cancel</label>
+          
+        
+  
+       
+  
+        </div>
+  
+
+           
+      </div>
+    </div>
+  </div>
+
+  
+  </div>
+  <br><br><br>
+</div>
+

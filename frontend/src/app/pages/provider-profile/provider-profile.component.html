@@ -1,0 +1,124 @@
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-3" class="btn btn-sm  text-white btn-circle absolute right-2 top-2">✕</label>
+
+      <form class="text-justify items-center" [formGroup]="EditProfileForm">
+        
+        <br>
+        <label class="mt-5 text-black"> Street Name</label>
+        <input type="text" placeholder="{{street}}"  formControlName="street"  class="input input-bordered w-full form-control"  >
+
+        <label class="mt-5 text-black"> Area</label>
+        <input type="text"  placeholder="{{area}}"  formControlName="area" class="input input-bordered w-full form-control"  >
+
+        <label class="mt-5 text-black"> Province </label>
+        <select placeholder ="Please enter your province."  class="input input-bordered w-full form-control" (change)= "onSelectP()" formControlName="province"  id="province" required>
+          <option class="my-" *ngFor="let prov of Province" [ngValue]="prov">{{prov}}</option>
+       </select > 
+
+       <label class="mt-5 text-black"> City </label>
+       <select placeholder ="Please enter your province."  class="input input-bordered w-full form-control" formControlName="city" id="province" required>
+        <option *ngFor="let prov of citttt" [ngValue]="prov">{{prov}}</option>
+      </select > 
+
+
+      <label type="button" for="my-modal-3" (click)="UpdateUser()" class="btn updatebtn btn-sm text-center my-3 border-none btn-wide mt-10 " style="color: white; width:80%; margin-left: 10%; margin-right: 10%; "> Update </label>
+
+      </form>
+
+     </div>
+</div>
+
+<input type="checkbox" id="my-modal-5" class="modal-toggle"/> 
+
+<div class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <label for="my-modal-5" class="btn btn-sm  text-white btn-circle absolute right-2 top-2">✕</label>
+    <form [formGroup]="GallaryForm">
+    <label class="mt-5 text-black"> Add Image </label>
+   
+    <input type="file" id="file2" formControlName = "file2" class="input-bordered w-full form-control" name="image" (change)="onFileAddImg($event)"  accept="image/gif,image/jpeg,image/jpg,image/png" multiple="" data-original-title="upload photos">
+    <label  (click)="gallaryUpload()" for="my-modal-5" class="btn updatebtn btn-sm text-center my-3 border-none btn-wide mt-10 " style="color: white; width:80%; margin-left: 10%; margin-right: 10%; "> Upload image</label>
+   </form>
+
+  </div>
+</div>
+
+<input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<label for="my-modal-4" class="modal cursor-pointer">
+  <label class="modal-box relative" for="">
+  
+    <form action="" [formGroup]="descForm">
+      <input type="text" formControlName = "description" placeholder="Enter New bio message" class="input input-bordered w-full h-34 form-control"  >
+       <label   for="my-modal-4"  (click)="updateDescription()"  class="btn updatebtn btn-sm text-center my-3 border-none btn-wide mt-10 " style="color: white; width:80%; margin-left: 10%; margin-right: 10%; "> Update Bio </label>
+
+    </form>
+    
+    </label>
+</label>
+
+
+
+<div class="backround_img" style="background-image:url('../../../assets/Frame\ 9.svg'); background-repeat: no-repeat; height: auto;background-size: cover;">
+  <app-provider-header></app-provider-header>
+
+  <div class="cover h-auto  bg-[#dba0cbbd] text-white">
+ 
+   <div class="cover h-44 w-full" style="background-color:#dba0cbbd;"> 
+    <img  class="cover h-44 w-full" src="{{coverimg}}" alt="">
+
+  </div>
+ <span class="absolute top-0 right-0 mt-52 mr-2"><label for="file">
+    <i class="fi fi-bs-camera"></i>
+    <input type="file" id="file" style="display: none" name="image" (change)="onFileChangeCover($event)"   accept="image/gif,image/jpeg,image/jpg,image/png" multiple="" data-original-title="upload photos">
+</label></span>
+
+
+  <div class="avatar absolute mx-36 top-0 pt-40">
+    <div class="w-24 rounded-full">
+      <img src="{{profilepic}}" />
+      <span class="absolute top-0 right-0 mr-1 mt-56">  <label for="file1">
+        <i class="fi fi-bs-camera"></i>
+        <input type="file" id="file1" style="display: none" (change)="onFileChange($event)"  name="image" accept="image/gif,image/jpeg,image/jpg,image/png" multiple="" data-original-title="upload photos">
+    </label></span>
+    </div>
+</div>
+
+<h1 class="text-center mt-12 font-extrabold font-xl"><i class="fi fi-bs-user"></i>{{name}} {{surname}}</h1> 
+<h2 class="text-center font-extrabold"> <i class="fi fi-bs-envelope"></i> {{email}}</h2> <br>
+<h3 class="text-center font-extrabold"><i class="fi fi-bs-marker"></i> {{street}}</h3>
+<h3 class="text-center font-extrabold">  {{area}} </h3>
+<h3 class="text-center font-extrabold">  {{cities}} </h3>
+<h3 class="text-center font-extrabold"> {{provinces}} </h3>
+ <div class="grid grid-cols-2 gap-4 space-x-2 mx-5 my-4">
+  <label class="btn  mb-10 text-white" for="my-modal-5"><i class="fi fi-bs-add"></i>&nbsp;Add Gallery</label> 
+  <label class="btn  mb-10 text-white" for="my-modal-3"  >Edit Profile</label> 
+ </div>
+</div>
+
+<div class="bio w-auto h-auto  rounded-md mx-5 mt-4 py-10" style="background-color: #202450">
+  <label class="absolute right-0 mr-10 -mt-8 text-white" for="my-modal-4"><i class="fi fi-bs-pencil absolute"></i></label>
+ <p class="mx-5 text-center text8 text-white">{{desc}}</p>
+</div>
+
+<div class="">
+<p class="text-center text-white mt-10 mb-4">Gallery</p>
+</div>
+<div class=" overflow-scroll my-2 h-72 mb-4">
+<div class=" flex-1 mb-10 mx-5 gap-4 my-4">
+
+<div class="gallery w-full mt-10  bg-[#202450] rounded-md h-44 my-5" *ngFor="let c of content">
+ 
+  <p class="p text-right  mt-10 mr-2" (click)="onDelete(c.id)"><i class="text-white  fi fi-bs-trash"></i></p>
+  <img class="w-80 h-32 ml-2" src="{{c.image}}" alt="">
+
+
+</div>
+
+
+</div>
+
+</div>
+<br><br>
+</div>

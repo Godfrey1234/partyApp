@@ -1,0 +1,55 @@
+.btn{
+   color:hover;
+   width: 10rem;
+   margin-left: 2.8rem;
+}
+
+span{
+    color: red;
+}
+
+.error-message,
+.success-message {
+  display: none;
+}
+
+input:focus {
+    border: 0.2px solid black;
+  }
+  input:valid {
+    border: 0.2px solid green;
+  }
+  input:invalid {
+    border: 0.2px solid red;
+  }
+  select:invalid{
+    border: 0.2px solid red;
+  }
+  option:valid{
+    border: 0.2px solid greenyellow;
+  }
+
+  input, button, label {
+    display: block;
+   }
+
+   .textW
+  {
+    font-weight: lighter;
+  }
+
+  .backgroundimg
+{
+    background-repeat: no-repeat;
+    background-size:cover; 
+    background-image: url('../../../assets/Frame\ 9.svg'); 
+}
+
+
+
+
+  //  .backgroundimg
+  //  {
+  //      background-repeat: no-repeat;
+  //      background-size:cover; 
+  //  }

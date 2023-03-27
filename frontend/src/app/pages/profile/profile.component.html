@@ -1,0 +1,128 @@
+<!-- <div class="flex flex-col min-h-screen"> -->
+  <div class="backgroundimg" style="background-image:url('../../../assets/Frame\ 9.svg');">
+    <div class="flex flex-col min-h-screen">
+  <app-header></app-header>
+  <!-- <h2 class="text-xl text-center mt-5" style="color: #342A23;">My Profile</h2>
+  <div class="col-lg-4 justify-center text-center mt-5" style="color: #342A23;">
+      <div class="profile">
+        <div class="head" *ngFor="let user of users">
+              <div class="col-lg-12">
+               <div class="row">
+                <div class="col-lg-6">
+                  <p><strong>First Name: </strong>{{user.user_name}}</p>
+                 </div>
+                 <div class="col-lg-6">
+                  <p><strong>Last Name: </strong>{{user.user_lastname}}</p>
+                 </div>
+                 <div class="col-lg-6">
+                   <p><strong>Email: </strong>{{user.user_email}}</p>
+                 </div>
+                </div>
+              </div><br>
+        </div> -->
+  
+          <!-- The button to open modal -->
+  <!-- <label for="my-modal-4" class="btn btn-xs btn-outline btn-secondary">Edit Profile</label> -->
+  
+  <!-- Put this part before </body> tag -->
+  <!-- <input type="checkbox" id="my-modal-4" class="modal-toggle"/>
+  <label for="my-modal-4" class="modal cursor-pointer">
+    <label class="modal-box relative" style="background-color: #342A23;" for="">
+      <form [formGroup]="EditProfileForm" novalidate>
+        <div class="row text-center mx-40">
+          <div class="form-group row">
+            <label for="user_name" class="col-form-label text-white"> <i class="bi bi-person-fill"></i> Name: </label>
+            <input type="text" class="form-control input input-secondary input-bordered -ml-6" id="user_name"  placeholder="{{name}}" formControlName="user_name">
+          </div>
+  
+          <div class="form-group row">
+            <label for="user_lastname" class="col-form-label text-white"> <i class="bi bi-person-fill"></i> Last name: </label>
+            <input type="text" class="form-control input input-secondary input-bordered -ml-6" id="user_lastname" placeholder="{{surname}}" formControlName="user_lastname">
+          </div>
+  
+          <div class="form-group row">
+            <label for="user_email" class="col-form-label text-white"> <i class=" bi bi-envelope-fill"></i> E-mails: </label>
+            <input type="text" class="form-control input input-secondary input-bordered -ml-6" id="user_email" placeholder="{{email}}" formControlName="user_email">
+           </div>
+        </div>
+     
+        <div class="logdiv mt-5">
+          <button type="button" (click)="UpdateUser()" class="btn btn-xs btn-outline btn-secondary"> Update </button>
+        </div>
+      </form>
+    </label>
+  </label> -->
+  
+
+   <div class="form w-full rounded-lg sm:max-w-md" style="background-color: #dba0cbbd;" *ngFor="let user of users">
+    
+    <div class="profilepic">
+      <img src="{{profilepic}}" class="profilep">
+   
+      <label for="file">
+        <i class="fi fi-sr-camera"></i>
+        <input type="file" id="file" style="display: none" name="image" (change)="onFileChange($event)"  accept="image/gif,image/jpeg,image/jpg,image/png" multiple="" data-original-title="upload photos">
+      </label>
+    
+      </div>
+      <!-- <div class="w-full rounded-lg sm:max-w-md" style="background-color: #dba0cbbd;"> -->
+      <div class="form-control mx-10 my-10">
+        <label class="label">
+          <span class="label-text">Name</span>
+        </label> 
+        <span type="text" class="input input-secondary input-bordered"> {{user.user_name}} </span>  
+        <label class="label">
+          <span class="label-text">Surname</span>
+        </label> 
+        <span type="text" class="input input-secondary input-bordered"> {{user.user_lastname}} </span>
+        <label class="label">
+          <span class="label-text">Email</span>
+        </label> 
+        <span type="text" class="input input-secondary input-bordered"> {{user.user_email}} </span> <br>
+    
+    
+
+    <!-- The button to open modal -->
+    <label for="my-modal-4" class="btn btn-sm text-center border-none btn-wide" style="color: white;">Edit Profile</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<label for="my-modal-4" class="modal cursor-pointer">
+  <label class="modal-box relative" for="">
+    <form [formGroup]="EditProfileForm" novalidate>
+    <div class="form-control text-justify items-center">
+      <div class="form-group row">
+      <label class="label">
+        <span class="label-text">Name</span>
+      </label> 
+      <input type="text" placeholder="{{user.user_name}}" class="input input-bordered  form-control" formControlName="user_name">
+      <label class="label">
+        <span class="label-text">Surname</span>
+      </label> 
+      <input type="text" placeholder="{{user.user_lastname}}" class="input input-bordered form-control" formControlName="user_lastname">
+      <label class="label">
+        <span class="label-text">Email</span>
+      </label> 
+      <input type="text" disabled placeholder="{{user.user_email}}" class="input input-bordered form-control" >
+    </div>
+    <div class="logdiv mt-5">
+      <button type="button" (click)="UpdateUser()" class="btn updatebtn btn-sm text-center border-none btn-wide" style="color: white;"> Update </button>
+    </div>
+  </div>
+  </form>
+  </label>
+</label>
+      </div>
+       
+      <!-- </div>  -->
+    </div>
+  </div>
+  
+  </div>
+
+  <!-- <div class="fixed bottom-0 w-full ">
+    <app-footer></app-footer>
+  </div>
+  </div> -->
+
+  
