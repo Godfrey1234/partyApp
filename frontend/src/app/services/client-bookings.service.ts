@@ -8,7 +8,7 @@ const baseUrl = 'http://localhost:3001/bookings';
   providedIn: 'root'
 })
 export class ClientBookingsService {
-  REST_API: string = 'http://localhost:3000';
+  REST_API: string = 'https://party-app-rho.vercel.app/';
 
   constructor(private http: HttpClient) { }
   

@@ -208,7 +208,7 @@ updateDescription()
           //updateClientProfilepic
 
           this.EditProfileForm.value.profilepic = res.url;
-          this.http.put('http://localhost:3000/updateClientProfilepic/'+this.id,this.EditProfileForm.value, )
+          this.http.put('https://party-app-rho.vercel.app//updateClientProfilepic/'+this.id,this.EditProfileForm.value, )
           .subscribe((res:any)=>{
 
           
@@ -247,7 +247,7 @@ onFileChangeCover(event:any) {
     //updatecoverimg
 
     this.EditProfileForm.value.coverimg = res.url;
-    this.http.put('http://localhost:3000/updateCoverImg/'+this.id,this.EditProfileForm.value, )
+    this.http.put('https://party-app-rho.vercel.app/updateCoverImg/'+this.id,this.EditProfileForm.value, )
     .subscribe((res:any)=>{
 
     
@@ -373,7 +373,7 @@ onDelete(id:any){
   console.log(id)
   this.EditProfileForm.value.status = "Deleted"  
 
-  this.http.put('http://localhost:3000/deleteImage/'+id,this.EditProfileForm.value).subscribe((data:any)=>{
+  this.http.put('https://party-app-rho.vercel.app/deleteImage/'+id,this.EditProfileForm.value).subscribe((data:any)=>{
 
 
 
@@ -410,7 +410,7 @@ onDelete(id:any){
    this.post.value.city = this.users[0].city
    console.log(this.post.value,"value")
    
-   this.http.put('http://localhost:3000/updateProviderProfile/',this.post.value,{responseType:'text'} )
+   this.http.put('https://party-app-rho.vercel.app/updateProviderProfile/',this.post.value,{responseType:'text'} )
    .subscribe((res:any)=>{
 
     

@@ -96,7 +96,7 @@ export class ProfileComponent implements OnInit {
           //updateClientProfilepic
 
           this.EditProfileForm.value.profilepic = res.url;
-          this.http.put('http://localhost:3000/updateClientProfilepic/'+this.id,this.EditProfileForm.value, )
+          this.http.put('https://party-app-rho.vercel.app/updateClientProfilepic/'+this.id,this.EditProfileForm.value, )
           .subscribe((res:any)=>{
 
             console.log('yes wena ma b');

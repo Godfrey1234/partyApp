@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProfileService {
 
-REST_API: string = 'http://localhost:3000';
+REST_API: string = 'https://party-app-rho.vercel.app/';
 
 constructor(private httpClient: HttpClient) { }
 

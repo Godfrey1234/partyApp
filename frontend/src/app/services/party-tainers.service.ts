@@ -12,7 +12,7 @@ export class PartyTainersService {
  
   constructor(private http:HttpClient) { }
 
-  baseurl = "http://localhost:3000/"
+  baseurl = "https://party-app-rho.vercel.app/"
   token !: string;
   jwtHelper = new JwtHelperService;
 

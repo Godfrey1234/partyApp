@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UpdateProfileService {
-  REST_API: string = 'http://localhost:3000';
+  REST_API: string = 'https://party-app-rho.vercel.app/';
 
   constructor(private http : HttpClient) { }
 

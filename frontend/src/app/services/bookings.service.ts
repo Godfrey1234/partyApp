@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:3000/bookings';
+const baseUrl = 'https://party-app-rho.vercel.app/bookings';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingsService {
 
-REST_API: string = 'http://localhost:3000';
+REST_API: string = 'https://party-app-rho.vercel.app/';
 
 constructor(private http : HttpClient) { }
 
