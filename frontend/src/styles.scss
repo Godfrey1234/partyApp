@@ -7,27 +7,17 @@
 @import 'ngx-toastr/toastr';
 
 
-@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
-
-@import url('https://cdn-uicons.flaticon.com/uicons-bold-straight/css/uicons-bold-straight.css');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap%27');
-:root
-{
-    
-}
 
 body
 {
    
     font-family: 'Poppins', sans-serif;
-    // background: radial-gradient(rgba(148,187,233,1) 0%, rgba(238,174,202,1) 100%); 
-    // height: 100vh;
-    // color: white;
+ 
 }
 
 .formL{
 
     border-radius: 18px;
-  box-shadow: -18px 17px 33px -4px rgba(0,0,0,1);
+   box-shadow: -18px 17px 33px -4px rgba(0,0,0,1);
   
   }
